@@ -1,0 +1,51 @@
+PHP CMS Project TODO List:
+
+1. Complete user registration functionality
+   - Add email verification
+   - Implement stronger password requirements
+
+   /Google auth for easier login
+
+2. Create login system
+   - Develop login.php
+   - Implement session management
+
+3. Develop user profile page
+   - Allow users to update their information
+   - Add avatar upload functionality
+
+4. Create post management system
+   - Implement create, read, update, delete (CRUD) for posts
+   - Add rich text editor for post content
+
+5. Implement category system
+   - Create category management in admin panel
+   - Allow assigning categories to posts
+
+6. Develop admin panel
+   - Create admin dashboard
+   - Implement user management for admins
+
+7. Add search functionality
+   - Develop search.php
+   - Implement search algorithm for posts and categories
+
+8. Enhance security
+   - Implement CSRF protection
+   - Add input sanitization and validation throughout the application
+
+9. Improve error handling and logging
+
+10. Optimize database queries and implement caching
+
+11. Add pagination for posts and search results
+
+12. Implement commenting system for posts
+
+13. Create a basic theme system
+
+14. Add RSS feed for blog posts
+
+15. Implement basic analytics (page views, popular posts)
+
+Remember to test thoroughly after implementing each feature!
