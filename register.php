@@ -1,50 +1,61 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-?>
-
-<?php
 require_once "config/database.php";
+require_once "includes/csrf.php";
 require_once "includes/header.php";
-?>
-<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$error = "";
+$success = "";
+$csrf_token = generate_csrf_token();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    verify_csrf_token($_POST["csrf_token"]);
+
     $username = $conn->real_escape_string($_POST["username"]);
     $email = $conn->real_escape_string($_POST["email"]);
     $password = $_POST["password"];
-    $confirm_password = $_POST["confirm_password"]; // Basic validation
+    $confirm_password = $_POST["confirm_password"];
+
     if (empty($username) || empty($email) || empty($password)) {
         $error = "All fields are required";
     } elseif ($password !== $confirm_password) {
         $error = "Passwords do not match";
     } else {
-        // Check if username or email already exists
-        $check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
-        $result = $conn->query($check_query);
+        $check_query = "SELECT * FROM users WHERE username = ? OR email = ?";
+        $stmt = $conn->prepare($check_query);
+        $stmt->bind_param("ss", $username, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         if ($result->num_rows > 0) {
             $error = "Username or email already exists";
         } else {
-            // Hash the password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            // Insert new user
-            $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
-            if ($conn->query($insert_query) === true) {
+            $insert_query =
+                "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($insert_query);
+            $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+            if ($stmt->execute()) {
                 $success = "Registration successful. You can now log in.";
             } else {
                 $error = "Error: " . $conn->error;
             }
         }
     }
-} ?>
+}
+?>
+
+<h2>Register</h2>
 
 <?php
-if (isset($error)) {
+if (!empty($error)) {
     echo "<p style='color: red;'>$error</p>";
 }
-if (isset($success)) {
+if (!empty($success)) {
     echo "<p style='color: green;'>$success</p>";
 }
 ?>
-<h2>Register</h2>
+
 <form action="register.php" method="post">
     <div>
         <label for="username">Username:</label>
@@ -65,6 +76,9 @@ if (isset($success)) {
     <div>
         <input type="submit" value="Register">
     </div>
+    <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 </form>
+
+<p>Already have an account? <a href="login.php">Login here</a>.</p>
 
 <?php require_once "includes/footer.php"; ?>
