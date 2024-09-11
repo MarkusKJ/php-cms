@@ -1,0 +1,50 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #000;
+    color: #00ff00;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tweet {
+    border: 1px solid #00ff00;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.tweet-meta {
+    font-size: 0.8em;
+    color: #008800;
+}

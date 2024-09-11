@@ -1,51 +1,74 @@
-PHP CMS Project TODO List:
+Retro Tweet Project TODO List:
 
-1. Complete user registration functionality
-   - Add email verification
-   - Implement stronger password requirements
+Enhance user authentication
 
-   /Google auth for easier login
+Add email verification for new registrations
+Implement stronger password requirements
+Consider adding OAuth (e.g., Google auth) for easier login
 
-2. Create login system
-   - Develop login.php
-   - Implement session management
 
-3. Develop user profile page
-   - Allow users to update their information
-   - Add avatar upload functionality
+Improve user profiles
 
-4. Create post management system
-   - Implement create, read, update, delete (CRUD) for posts
-   - Add rich text editor for post content
+Add avatar upload functionality
+Implement user bio or status message
 
-5. Implement category system
-   - Create category management in admin panel
-   - Allow assigning categories to posts
 
-6. Develop admin panel
-   - Create admin dashboard
-   - Implement user management for admins
+Expand tweet functionality
 
-7. Add search functionality
-   - Develop search.php
-   - Implement search algorithm for posts and categories
+Add ability to edit and delete tweets
+Implement retweet functionality
+Add likes/favorites for tweets
 
-8. Enhance security
-   - Implement CSRF protection
-   - Add input sanitization and validation throughout the application
 
-9. Improve error handling and logging
+Implement follow system
 
-10. Optimize database queries and implement caching
+Allow users to follow/unfollow other users
+Create a personalized feed of tweets from followed users
 
-11. Add pagination for posts and search results
 
-12. Implement commenting system for posts
+Add search functionality
 
-13. Create a basic theme system
+Develop search.php
+Implement search for tweets and users
 
-14. Add RSS feed for blog posts
 
-15. Implement basic analytics (page views, popular posts)
+Enhance security
 
-Remember to test thoroughly after implementing each feature!
+Review and improve CSRF protection
+Enhance input sanitization and validation
+
+
+Improve error handling and logging
+Optimize performance
+
+Optimize database queries
+Implement caching where appropriate
+
+
+Add pagination for tweet feeds
+Implement hashtag system
+
+Parse and highlight hashtags in tweets
+Create pages to view tweets by hashtag
+
+
+Develop basic admin panel
+
+Create admin dashboard
+Implement user management for admins
+Add ability to moderate tweets
+
+
+Create a notification system
+
+Notify users of new followers, likes, or retweets
+
+
+Implement basic analytics
+
+Track and display tweet views
+Show trending topics or popular tweets
+
+
+Add responsiveness for mobile devices
+Consider adding a dark mode toggle

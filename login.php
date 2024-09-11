@@ -26,18 +26,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("location: index.php");
             exit();
         } else {
-            $error = "The password you entered was not valid.";
+            $error = "Invalid password";
         }
     } else {
-        $error = "No account found with that username.";
+        $error = "User not found";
     }
 }
 ?>
 
-<h2>Login</h2>
+<h2>Login to Retro Tweet</h2>
 
 <?php if (!empty($error)) {
-    echo "<p style='color: red;'>$error</p>";
+    echo "<p style='color: #ff0000;'>$error</p>";
 } ?>
 
 <form action="login.php" method="post">
@@ -55,6 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
 </form>
 
-<p>Don't have an account? <a href="register.php">Register here</a>.</p>
+<p>No account? <a href="register.php">Register here</a>.</p>
 
 <?php require_once "includes/footer.php"; ?>

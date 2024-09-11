@@ -45,14 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h2>Register</h2>
+<h2>Register for Retro Tweet</h2>
 
 <?php
 if (!empty($error)) {
-    echo "<p style='color: red;'>$error</p>";
+    echo "<p style='color: #ff0000;'>$error</p>";
 }
 if (!empty($success)) {
-    echo "<p style='color: green;'>$success</p>";
+    echo "<p style='color: #00ff00;'>$success</p>";
 }
 ?>
 

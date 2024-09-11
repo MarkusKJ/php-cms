@@ -1,7 +1,6 @@
 </main>
     <footer>
-        <p>&copy; 2024 PHP CMS</p>
+        <p>&copy; <?php echo date("Y"); ?> Retro Tweet</p>
     </footer>
-    <script src="/assets/js/script.js"></script>
 </body>
 </html>
