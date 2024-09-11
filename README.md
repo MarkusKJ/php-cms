@@ -1,40 +1,57 @@
-PHP CMS Project
-This is a simple Content Management System (CMS) built with PHP and MySQL. It's designed as a learning project to understand the basics of web development with PHP.
-Project Structure
-Copyphp-cms/
+# Retro Tweet
+
+Retro Tweet is a Twitter-like application with a 1970s computer terminal aesthetic. It's built using PHP and MySQL, designed to provide a nostalgic social media experience.
+
+## Features
+
+- User registration and authentication
+- Create and view tweets (limited to 280 characters)
+- User profiles with recent tweets
+- Retro-style interface with green text on a black background
+
+## Project Structure
+
+```
+retro-tweet/
 ├── config/
-│   └── database.php
+│   └── database.php (ignored by git)
 ├── includes/
 │   ├── header.php
-│   └── footer.php
-├── admin/
-│   ├── index.php
-│   ├── posts.php
-│   ├── categories.php
-│   └── users.php
+│   ├── footer.php
+│   └── csrf.php
+├── assets/
+│   └── css/
+│       └── style.css
 ├── index.php
 ├── register.php
 ├── login.php
-├── post.php
-├── category.php
-└── search.php
-Setup
+├── profile.php
+├── create_tweet.php
+├── user_tweets.php
+├── logout.php
+└── README.md
+```
 
-Clone this repository to your local machine.
-Set up a local server environment (like XAMPP, MAMP, or WAMP).
-Create a MySQL database named php_cms.
-Update the database connection details in config/database.php.
-Navigate to the project in your web browser.
+## Setup
 
-Features (Planned)
+1. Clone this repository to your local machine.
+2. Set up a local server environment (like XAMPP, MAMP, or WAMP).
+3. Create a MySQL database named `retro_tweet`.
+4. Copy `config/database.example.php` to `config/database.php` and update with your database credentials.
+5. Import the SQL schema from `database_schema.sql` (if provided, or create tables manually).
+6. Navigate to the project in your web browser.
 
-User Registration and Authentication
-Create, Read, Update, and Delete (CRUD) operations for blog posts
-Categorization of posts
-Search functionality
-Admin panel for site management
+## Usage
 
-Contributing
+- Register a new account or log in with existing credentials.
+- Create new tweets from your profile or the home page.
+- View tweets from all users on the home page.
+- Visit user profiles to see their recent tweets.
+
+## Contributing
+
 This is a personal learning project. While suggestions are welcome, active contributions are not being accepted at this time.
-License
-This project is open source and available under the MIT License.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
